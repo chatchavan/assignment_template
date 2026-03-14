@@ -34,6 +34,14 @@ This document demonstrates the \texttt{writtenassignmentchat} \LaTeX{} class. He
 \end{enumerate}
 
 
+
+\section{Quick start}
+
+\begin{enumerate}
+  \item Add your text content to \verb|0-main.tex|, figures in the folder \verb|figures|, and the bibtex references to the file \verb|a-references.bib|.
+  \item When you finish writing, make a word count (see the comment at the beginning of the main file and the section \ref{sec:wordcount} below).
+\end{enumerate}
+
 \section{Files}
 
 \begin{itemize}
@@ -46,10 +54,6 @@ This document demonstrates the \texttt{writtenassignmentchat} \LaTeX{} class. He
   \item \verb|writtenassignmentchat.cls| - The \LaTeX{} class file.
   \item \verb|z_fallback_template.docx| - A similar template in MS Word that you can use as a fallback.
 \end{itemize}
-
-\section{Getting started}
-To use this template, add your content to \verb|0-main.tex|.
-
 
 \section{Citations}
 
@@ -77,6 +81,7 @@ declared separately in the \texttt{.tex} file.
 
 
 \section{Word Count}
+\label{sec:wordcount}
 
 Immediately before the reference list, the class prints the word count of the body text, excluding references. The value is set in the preamble with \verb|\renewcommand{\wordcountvalue}{N}|. 
 For automatic counting, run \texttt{texcount -{}-sum 0-main.tex} and copy the result.
