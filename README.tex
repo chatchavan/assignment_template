@@ -1,0 +1,172 @@
+\documentclass{writtenassignmentchat}
+
+%% ── Word count ───────────────────────────────────────────────────────────────
+%% Word count needs to be updated manually. To count, use the command `texcount --sum main.tex`. Change the "main" to your main file name.)
+\renewcommand{\wordcountvalue}{000}
+
+%% ── Line numbers ─────────────────────────────────────────────────────────────
+%% Line numbers are ON by default. To disable, uncomment the next line:
+% \showlinenumbersfalse
+
+%% ── Graphic path ─────────────────────────────────────────────────────────────
+% Location of figures relative to the .tex file
+
+
+
+\title{Written assignment template for Chat's courses}
+
+
+\begin{document}
+
+\maketitle
+\begin{flushleft}
+Version: 1.0 (\today)
+
+This document demonstrates the \texttt{writtenassignmentchat} \LaTeX{} class. Here are a few things to keep in mind:
+\end{flushleft}
+
+\begin{enumerate}
+  \item When the info in this file contradicts with the instructions in your assignment sheet, follow the assignment sheet.
+  \item \textbf{Do not} add your name and student ID in the text. (The assignment is usually printed and graded with a pseudonym.)
+  \item Use the writing software that you are fluent with to draft your work (or to collaborate with others, if applicable). In the end, if you struggle with \LaTeX{}, you can use the MS Word template in the file \verb|z_fallback_template.docx| instead.
+  \item Some assignments may not need title, section, figures, or table. Don't use these features when they are not needed.
+  \item If you have suggestions to improve this template, file an issue on the  \linkedfootnote{https://github.com/chatchavan/assignment_template/issues}{template Github repository}.
+\end{enumerate}
+
+
+\section{Files}
+
+\begin{itemize}
+  \item \verb|0-main.tex| - Your writing goes here.
+  \item \verb|a-references.bib| - Reference entries in the bibtex format.
+  \item \verb|apalike-doi.bst| - bibliographical entry style.
+  \item \verb|figures| - The folder where you put images.
+  \item \verb|README.tex| - The source file of the template instruction.
+  \item \verb|README.pdf| - The template instruction.
+  \item \verb|writtenassignmentchat.cls| - The \LaTeX{} class file.
+  \item \verb|z_fallback_template.docx| - A similar template in MS Word that you can use as a fallback.
+\end{itemize}
+
+\section{Getting started}
+To use this template, add your content to \verb|0-main.tex|.
+
+
+\section{Citations}
+
+\subsection{Citation style}
+
+We use APA-like citations because the last name of the first author appears in the text. 
+This saves readers' time. (No need to hunt down number in the reference section.)
+Examples:
+%
+\begin{itemize}
+  \item You can cite parenthetically at the end of a sentence with the \verb|\citep| command  ~\citep{smith2021}.
+  \item The citation can be a subject of the sentence. It read as if you say to "author and colleague...". Use the \verb|\citet| command for this: \citet{brown2020} presented some findings.
+  \item Be precise with your citations when possible by, e.g., pointing to specific page number or section number. Example \verb|\citep[p. 12]{smith2021}| generates \citep[p. 12]{smith2021}.
+  \item Alternatively, you can also a prefix text before parenthetical citation with a command like\\ \verb|\citep[see p. 12 of][]{smith2021}|. This results in \citep[see p. 12 of][]{smith2021}. 
+  \item To cite multiple items in one parenthesis, use \citep{smith2021, brown2020}. This template does not support citing multiple items with text prefix/suffix.
+\end{itemize}
+%
+
+\subsection{Reference section}
+Ensure that the reference information is as complete as possible. 
+Whenever available, provide Digital Object Identifier (DOI).
+The bibliography style is fixed to \texttt{apalike} in the class; it does not need to be
+declared separately in the \texttt{.tex} file.
+
+
+
+\section{Word Count}
+
+Immediately before the reference list, the class prints the word count of the body text, excluding references. The value is set in the preamble with \verb|\renewcommand{\wordcountvalue}{N}|. 
+For automatic counting, run \texttt{texcount -{}-sum 0-main.tex} and copy the result.
+
+If you use Overleaf, see \linkedfootnote{https://docs.overleaf.com/writing-and-editing/using-word-count}{how to get the word count from the GUI}. If you cannot get the word count to work in the command line, don't spend too much time figuring it out. Just compile your work in PDF, copy-and-paste it to MS Word, and use its word count feature.
+
+\section{URLs and Hyperlinks}
+
+When you include a URL, make it as linked text with the full address
+repeated in a footnote, so the link is accessible in both digital and printed
+versions.
+Use the custom command \verb|\linkedfootnote{url}{text}| to automatically create this.
+Example: \linkedfootnote{https://www.latex-project.org}{the \LaTeX{} project website}.
+
+
+\section{Elements other than the text}
+Some assignments are text-only, in that case, this section is not relevant.
+
+\subsection{Figures}
+
+\autoref{fig:fullwidth} provides an example of a figure. 
+When you use the command \verb|\includegraphics|, it first searches the subfolder \texttt{figures}.
+If  you want to change the path, add the like \verb|\graphicspath{{your-path/}}| before \verb|\begin{document}|.
+We recommend creating figure with exact physical size that it will appear on the page, such that you can just use the command \texttt{includegraphics} without any parameter in \LaTeX. In this way, you can ensure that the original figure has appropriate resolution.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics{example-fullwidth.pdf}
+  \caption{Example figure that spans full width of the document.}
+  \label{fig:fullwidth}
+\end{figure}
+
+\subsection{Table}
+
+Table in \LaTeX{} can be tricky. For assignments, there's no need to spend too much time wrangle with \LaTeX{} syntax. Instead, you can create a table in other app (e.g., MS Word), export it to PDF, crop it, and include the table as image like \autoref{tab:tablefrompdf}. 
+
+
+\begin{table}[ht]
+  \centering
+  \caption{Example table created in \LaTeX}
+  \label{tab:tableinlatex}
+  \begin{tabular}{llc}
+    \toprule
+    \textbf{Element} & \textbf{Setting} & \textbf{Value} \\
+    \midrule
+    Body text    & Font family   & Helvetica (helvet) \\
+                 & Font size     & 11\,pt \\
+                 & Line spacing  & 1.3$\times$ \\
+    \midrule
+    Section      & Font size     & 12\,pt \\
+                 & Style         & Bold \\
+    \midrule
+    Subsection   & Font size     & 11\,pt \\
+                 & Style         & Italic, underlined \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption{Example table imported from a PDF file}
+  \label{tab:tablefrompdf}
+  \includegraphics{example-table-as-figure.pdf} 
+\end{table}
+
+\subsection{Line numbers}
+
+Line numbers in the left margin can be disabled by adding the command \verb|\showlinenumbersfalse| before  \verb|\begin{document}|.
+
+\section{Stylistic specifications}
+If you use the template, the following settings are already applied. They are documented here for reference purposes.
+
+\subsection{Font style}
+
+Body text is set in \textbf{Helvetica} at \textbf{11\,pt} with a
+line spacing of \textbf{1.3} lines.
+Section headings are \textbf{12\,pt bold}.
+Subsection headings are \textbf{11\,pt italic and underlined}. 
+
+Do not indent the first paragraph of each section. Do indent subsequent paragraphs. Do not use ligatures.
+
+\subsection{Margins}
+
+The page margins are \textbf{1\,cm top}, \textbf{1.5 cm bottom} and \textbf{2\,cm left and
+right}. No header is printed; the footer
+area is included in the bottom margin calculation.
+
+\section{Acknowledgement}
+This template was scaffoled with multiple iterations with Claude Sonnet 4.6, plus a few hours of manual tweaks.
+
+\insertbibliography{a-references}
+
+\end{document}
